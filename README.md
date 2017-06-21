@@ -1,4 +1,4 @@
-# RPM Spec for Consul
+# RPM Spec for Consul Template
 
 Originally forked from [CiscoCloud/consul-template-rpm](https://github.com/CiscoCloud/consul-template-rpm) and modified for the ENA environment.
 
