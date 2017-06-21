@@ -1,0 +1,7 @@
+{"services": [
+{{- $length := ls "services"|len|add 0 -}}
+{{- $last := subtract 1 $length -}}
+{{range $idx := loop 0 $length -}}
+{{with index (ls "services") $idx}}
+{{- .Value}}{{if ne $idx $last}},{{end -}}
+{{end}}{{end}}]}
