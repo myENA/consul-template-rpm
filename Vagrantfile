@@ -17,5 +17,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision 'file', source: '.', destination: '/tmp/build'
   config.vm.provision "shell", inline: "touch /.doing_the_vagrant"
-  config.vm.provision 'shell', path: 'build.sh'
+  config.vm.provision 'shell', path: 'build.sh', privileged: false
 end

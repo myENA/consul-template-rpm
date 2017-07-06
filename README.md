@@ -24,8 +24,6 @@ docker run -v $PWD/artifacts:/tmp/artifacts -it ena/consul-template-rpm  ## run 
 ## With Vagrant
 
 ```bash
-vagrant box add centos/7           ## add the official CentOS 7 box
-vagrant box update --box centos/7  ## or update if you already have it
 vagrant up                         ## provision and build the RPMs
 ```
 
