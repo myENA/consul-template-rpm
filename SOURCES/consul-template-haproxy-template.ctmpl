@@ -79,14 +79,14 @@ backend rootBackend
 {{if service $svcNameLoc -}}
 {{range service $svcNameLoc}}
     server {{.ID}}:{{$dcName}} {{.Address}}:{{.Port}}{{if in .Tags "proxy-check"}} check{{end}}{{if in .Tags "proxy-ssl"}} ssl verify none{{end}}{{if ne $myDc $dcName}} backup{{end}}
-{{- end}}{{end}}{{end}}{{end}}{{end}}
+{{- end}}{{end}}{{end}}{{end}}{{end -}}
 {{range $dcIdx, $dcName := datacenters -}}
 {{$dcAtName := printf "@%s" $dcName -}}
 {{range services $dcAtName -}}
 {{$svcNameLoc := printf "%s@%s|passing,warning" .Name $dcName -}}
 {{if in .Tags "proxy-unique" -}}
 {{if service $svcNameLoc -}}
-{{with index (service $svcNameLoc) 0}}
+{{with index (service $svcNameLoc) 0 -}}
 
 ## unique backend {{.ID}}
 backend app_{{.ID}}
@@ -115,7 +115,7 @@ backend app_{{.ID}}
 ## standard backend {{.Name}}
 backend app_{{.Name}}
     mode http
-{{if in .Tags "proxy-sticky-session"}}
+{{- if in .Tags "proxy-sticky-session"}}
     stick-table type ip size 1m expire 1h
     stick on src
 {{end}}
@@ -143,7 +143,7 @@ backend app_{{.Name}}
 ## standard backend {{.Name}}
 backend app_{{.Name}}
     mode http
-{{if in .Tags "proxy-sticky-session"}}
+{{- if in .Tags "proxy-sticky-session"}}
     stick-table type ip size 1m expire 1h
     stick on src
 {{end}}
