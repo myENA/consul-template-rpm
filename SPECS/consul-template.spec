@@ -3,7 +3,7 @@
 
 Name:           consul-template
 Version:        0.19.0
-Release:        0%{?dist}
+Release:        3%{?dist}
 Summary:        Consul Template provides a convenient way to populate values from Consul into the filesystem.
 
 Group:          System Environment/Daemons
