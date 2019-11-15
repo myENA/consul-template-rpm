@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 set -ex  ## we like things verbose
 
-## ensure we have a full dev stack
-sudo yum groupinstall -y "Development Tools"
-
-## install other helpers
-sudo yum install -y epel-release mock rpmdevtools rpm-devel
+## install needed packages
+sudo yum install -y rpmdevtools rpm-devel
 
 ## setup our build path
 rpmdev-setuptree
